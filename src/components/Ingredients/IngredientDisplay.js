@@ -9,10 +9,12 @@ import {
   CardActions,
   Button,
 } from '@material-ui/core';
+import red from '@material-ui/core/colors/red';
 import { navigate } from '@reach/router';
 import {
   getIngredient,
   ingredientOnChange,
+  deleteIngredient,
   // clearIngredient,
 } from './actions';
 import IngredientForm from './IngredientForm';
@@ -25,6 +27,7 @@ const useStyles = makeStyles({
   ingredientCard: {
     display: 'flex',
     margin: 'auto',
+    width: '60%',
     flexDirection: 'column',
   },
   cardHeader: {
@@ -34,6 +37,9 @@ const useStyles = makeStyles({
     padding: 20,
     display: 'flex',
     flexDirection: 'column',
+  },
+  deleteButton: {
+    backgroundColor: red[500],
   },
 });
 
@@ -51,6 +57,10 @@ function IngredientDisplay(props) {
 
   function handleCancelClick() {
     navigate('/ingredients');
+  }
+
+  function handleDeleteClick() {
+    dispatch(deleteIngredient(id));
   }
 
   function handleOnChange(newIngredient) {
@@ -82,6 +92,15 @@ function IngredientDisplay(props) {
             onClick={handleCancelClick}
           >
             Cancel
+          </Button>
+          <Button
+            variant="contained"
+            onClick={handleDeleteClick}
+            classes={{
+              root: classes.deleteButton,
+            }}
+          >
+            Delete
           </Button>
         </CardActions>
       </Card>

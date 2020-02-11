@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { navigate } from '@reach/router';
 import {
   CLEARINGREDIENT,
   FETCHINGREDIENTS,
@@ -29,10 +30,23 @@ export const getIngredient = id => {
 };
 
 export const ingredientOnChange = ingredient => {
-  // console.log('action ingredient: ', ingredient);
   return {
     type: INGREDIENTONCHANGE,
     payload: ingredient,
+  };
+};
+
+export const deleteIngredient = id => {
+  return async () => {
+    const response = await axios.delete(
+      `${URL}/api/ingredients/${id}`,
+    );
+    if (response.status === 204) {
+      navigate('/ingredients');
+    } else {
+      // eslint-disable-next-line no-console
+      console.log('error deleting');
+    }
   };
 };
 
