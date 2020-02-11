@@ -24,7 +24,7 @@ StyledTextField.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   error: PropTypes.string,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   className: PropTypes.string,
 };
 
@@ -32,6 +32,7 @@ StyledTextField.defaultProps = {
   value: '',
   error: undefined,
   className: undefined,
+  label: undefined,
 };
 
 export default StyledTextField;

@@ -18,6 +18,9 @@ const useStyles = makeStyles({
 function IngredientForm(props) {
   const classes = useStyles();
   const { ingredient, onChange } = props;
+  const { synonyms } = ingredient;
+  // eslint-disable-next-line no-console
+  console.log(ingredient);
 
   const nameOnChange = newValue => {
     const newIngredient = { ...ingredient, name: newValue };
@@ -70,7 +73,11 @@ function IngredientForm(props) {
         className={classes.field}
         onChange={unitOfMeasureNotationChange}
       />
-      <IngredientSynonymForm synonyms={undefined} />
+      <IngredientSynonymForm
+        ingredient={ingredient}
+        synonyms={synonyms}
+        onChange={onChange}
+      />
     </div>
   );
 }
@@ -82,6 +89,7 @@ IngredientForm.propTypes = {
   ingredient: PropTypes.shape({
     name: PropTypes.string.isRequired,
     identifier: PropTypes.string.isRequired,
+    synonyms: PropTypes.arrayOf(PropTypes.string),
     unitOfMeasure: PropTypes.shape({
       notation: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
