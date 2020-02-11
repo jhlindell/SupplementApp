@@ -6,8 +6,8 @@ module.exports = {
     node: true,
     jest: true,
   },
-  extends: ['eslint-config-airbnb', 'prettier'],
-  plugins: ['prettier', 'babel', 'react-hooks'],
+  extends: ['airbnb', 'prettier', 'prettier/react'],
+  plugins: ['babel', 'react-hooks', 'prettier'],
   rules: {
     'prettier/prettier': ['error'],
     'import/no-extraneous-dependencies': [
@@ -19,6 +19,7 @@ module.exports = {
       { extensions: ['.js', '.jsx'] },
     ],
     'react-hooks/rules-of-hooks': 'error',
+    'react/arrow-parens': 0,
     'react-hooks/exhaustive-deps': 'warn',
   },
 };

@@ -1,11 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import '@babel/polyfill';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@material-ui/core/styles';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import App from './components/App/App';
+import theme from './theme';
+import reducers from './reducers';
 
-import App from './App';
+const store = createStore(reducers, applyMiddleware(thunk));
 
-const title = 'Pillz';
 ReactDOM.render(
-  <App title={title} />,
+  <ThemeProvider theme={theme}>
+    <CssBaseline />
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </ThemeProvider>,
   document.getElementById('app'),
 );
 
