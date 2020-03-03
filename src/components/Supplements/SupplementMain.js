@@ -1,10 +1,14 @@
 import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSelector, useDispatch } from 'react-redux';
+import Grid from '@material-ui/core/Grid';
 import { fetchSupplements } from './actions';
+import SupplementListItem from './SupplementListItem';
 
 const useStyles = makeStyles({
-  root: {},
+  root: {
+    padding: 8,
+  },
 });
 
 function SupplementMain() {
@@ -22,9 +26,16 @@ function SupplementMain() {
     if (supplements.length) {
       return (
         <div className={classes.root}>
-          {supplements.map(supplement => {
-            return <div key={supplement.name}>{supplement.name}</div>;
-          })}
+          <Grid container spacing={2}>
+            {supplements.map(supplement => {
+              return (
+                <SupplementListItem
+                  key={supplement.identifier}
+                  supplement={supplement}
+                />
+              );
+            })}
+          </Grid>
         </div>
       );
     }

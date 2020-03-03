@@ -16,9 +16,9 @@ const useStyles = makeStyles({
     margin: '20px auto auto auto',
     flexDirection: 'column',
     height: 400,
-  },
-  cardHeader: {
-    backgroundColor: 'lightgray',
+    '&:hover': {
+      boxShadow: '-1px 10px 29px 0px rgba(0,0,0,0.8)',
+    },
   },
   cardContent: {
     padding: 20,
