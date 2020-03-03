@@ -40,12 +40,17 @@ function Navbar() {
     setAnchorEl(null);
   };
 
-  const handleIngredientsClick = () => {
-    setAnchorEl(null);
-    navigate('/ingredients');
-  };
+  // const handleIngredientsClick = () => {
+  //   setAnchorEl(null);
+  //   navigate('/ingredients');
+  // };
 
   const handleHomeClick = () => {
+    setAnchorEl(null);
+    navigate('/');
+  };
+
+  const handleSupplementsClick = () => {
     setAnchorEl(null);
     navigate('/');
   };
@@ -71,8 +76,11 @@ function Navbar() {
             onClose={handleCloseMenu}
           >
             <MenuItem onClick={handleHomeClick}>Home</MenuItem>
-            <MenuItem onClick={handleIngredientsClick}>
+            {/* <MenuItem onClick={handleIngredientsClick}>
               Ingredients
+            </MenuItem> */}
+            <MenuItem onClick={handleSupplementsClick}>
+              Supplements
             </MenuItem>
           </Menu>
           <Typography variant="h6" className={classes.title}>

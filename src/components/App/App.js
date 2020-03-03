@@ -5,7 +5,8 @@ import Home from '../Home/Home';
 import Navbar from '../NavBar/Navbar';
 import Ingredients from '../Ingredients/Ingredients';
 import Ingredient from '../Ingredients/IngredientBase';
-import Supplements from '../Supplements/SupplementMain';
+import Supplements from '../Supplements/SupplementList';
+import Supplement from '../Supplements/SupplementDetail';
 
 const useStyles = makeStyles({
   appRoot: {
@@ -21,6 +22,7 @@ function App() {
       <Router>
         <Home path="/" />
         <Supplements path="/supplements" />
+        <Supplement path="/supplements/:id" />
         <Ingredients path="/ingredients" />
         <Ingredient path="/ingredients/:id" />
       </Router>

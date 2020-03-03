@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   },
 });
 
-function SupplementMain() {
+function SupplementList() {
   const supplements = useSelector(state => state.supplements);
   const dispatch = useDispatch();
 
@@ -49,4 +49,4 @@ function SupplementMain() {
   return <div className={classes.root}>{renderSupplements()}</div>;
 }
 
-export default SupplementMain;
+export default SupplementList;

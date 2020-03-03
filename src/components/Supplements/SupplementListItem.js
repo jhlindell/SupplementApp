@@ -3,6 +3,7 @@ import { PropTypes } from 'prop-types';
 import { Card, CardContent } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import { navigate } from '@reach/router';
 
 const useStyles = makeStyles({
   card: {
@@ -15,10 +16,11 @@ const useStyles = makeStyles({
 function SupplementListItem(props) {
   const { supplement } = props;
   const classes = useStyles();
+  const link = `/supplements/${supplement.identifier}`;
 
   return (
     <Grid item xs={12} md={6} lg={4}>
-      <Card className={classes.card}>
+      <Card className={classes.card} onClick={() => navigate(link)}>
         <CardContent>{supplement.name}</CardContent>
       </Card>
     </Grid>
