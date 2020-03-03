@@ -6,7 +6,7 @@ import TextField from '../commonComponents/TextField';
 
 const useStyles = makeStyles({
   field: {
-    width: 350,
+    width: 250,
     paddingBottom: 20,
     marginLeft: 20,
     marginRight: 20,
@@ -59,11 +59,12 @@ function IngredientSynonymForm(props) {
                     key={synonym}
                     value={synonym}
                     error={undefined}
-                    label={undefined}
+                    label={`Synonym ${index + 1}`}
                     className={classes.field}
                     onChange={event => synonymOnChange(event, index)}
                   />
                   <Button
+                    key={`${synonym} button`}
                     color="primary"
                     variant="contained"
                     onClick={() => deleteSynonym(index)}

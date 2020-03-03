@@ -4,7 +4,7 @@ import { Router } from '@reach/router';
 import Home from '../Home/Home';
 import Navbar from '../NavBar/Navbar';
 import Ingredients from '../Ingredients/Ingredients';
-import Ingredient from '../Ingredients/IngredientDisplay';
+import Ingredient from '../Ingredients/IngredientBase';
 
 const useStyles = makeStyles({
   appRoot: {
